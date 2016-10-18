@@ -34,10 +34,10 @@ $(function(){
 
 	<nav>
 		<a href="#home" class="acao selecionado">Home</a>
-		<a href="#equipamentos" class="acao">Atividades</a>
-		<?php if($_SESSION['acesso'] == 9) { ?><a href="#licensas" class="acao">Equipes</a><?php } ?>
-		<a href="#listas" class="acao">Categorias</a>
-		<?php if($_SESSION['acesso'] == 9) { ?><a href="#movimentos" class="acao">Movimentos</a><?php } ?>
+		<a href="#atividades" class="acao">Atividades</a>
+		<?php if($_SESSION['acesso'] == 9) { ?><a href="#equipes" class="acao">Equipes</a><?php } ?>
+		<a href="#categorias" class="acao">Categorias</a>
+		<?php if($_SESSION['acesso'] == 9) { ?><a href="#rotinas" class="acao">Rotinas</a><?php } ?>
 		<?php if($_SESSION['acesso'] == 2) { ?><a href="http://suporte.pia.com.br/relatorios/aprendizes/" target="_blank">Registro</a><?php } ?>
 		<a href="#historico" class="acao">Histórico</a>
 		<a href="./logout.php">Logout</a>
@@ -51,20 +51,20 @@ $(function(){
 	<?php include "sections/home.tpl"; ?>
 </section>
 
-<section id="equipamentos" ng-app="appEquipamentos" ng-controller="myCtrlEquipamentos">
-	<?php include "sections/equipamentos.tpl"; ?>
+<section id="atividades" ng-app="appAtividades" ng-controller="myCtrlAtividades">
+	<?php include "sections/atividades.tpl"; ?>
 </section>
 
-<section id="licensas" ng-app="appLicensas" ng-controller="myCtrlLicensas">
-	<?php include "sections/licensas.tpl"; ?>
+<section id="equipes" ng-app="appEquipes" ng-controller="myCtrlEquipes">
+	<?php include "sections/equipes.tpl"; ?>
 </section>
 
-<section id="listas" ng-app="appListas" ng-controller="myCtrlListas">
-	<?php include "sections/listas.tpl"; ?>
+<section id="categorias" ng-app="appCategorias" ng-controller="myCtrlCategorias">
+	<?php include "sections/categorias.tpl"; ?>
 </section>
 
-<section id="movimentos" ng-app="appMovimentos" ng-controller="myCtrlMovimentos">
-	<?php include "sections/movimentos.tpl"; ?>
+<section id="rotinas" ng-app="appRotinas" ng-controller="myCtrlRotinas">
+	<?php include "sections/rotinas.tpl"; ?>
 </section>
 
 <section id="historico" ng-app="appHistorico" ng-controller="myCtrlHistorico">
