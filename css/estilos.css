@@ -118,7 +118,7 @@ main {
 }
 
 nav {
-    background: #ce8a23;
+    background: #b94321;
     width: 100%;
     height: 52px;
     text-align: center;
@@ -152,7 +152,7 @@ nav a {
 }
 
 nav a:hover {
-	background: #777;
+	background: rgba(77,77,77,.7);
     border-bottom: 5px #525252 solid;
 }
 
@@ -214,7 +214,7 @@ input[type="date"] {
 }
 
 input[type="submit"] {
-    background: #e49721;
+    background: #cc4d28;
     color: #FFF;
     border: none;
     padding: 16px 10%;
@@ -233,7 +233,7 @@ input[type="submit"]:hover {
 
 a.acao.selecionado {
     background: rgba(0,0,0,.43);
-    border-color: #a57124;
+    border-color: #a03313;
 }
 
 .linhaResultado, .linhaResultado7, .linhaResultado4, .linhaResultado5, .linhaResultado6, .linhaResultado1 {
@@ -277,7 +277,7 @@ a.exportar {
 
 
 a.exportar:hover {
-    background: #ce8a23;
+    background: #b94321;
 }
 .tituloResultados {
     display: block;
@@ -307,7 +307,7 @@ a.exportar:hover {
 }
 
 .tituloResultados a.selecionado {
-    background: #e49721;
+    background: #cc4d28;
 }
 
 div#resultadosEstados, div#resultadosTransp {
@@ -326,7 +326,7 @@ a.linkTitulo2 {
 }
 
 .linhaResultado:hover, .linhaResultado7:hover, .linhaResultado4:hover, .linhaResultado5:hover, .linhaResultado6:hover, .linhaResultado1:hover {
-    background: #d48c1e;
+    background: #e4704f;
     color: #FFF;
 }
 
@@ -461,7 +461,7 @@ a#adicionarLista, a#adicionarModem, a#adicionarLinha, a#adicionarLicensa, a#adic
 }
 
 a#adicionarLista:hover, a#botaoVoltar:hover, a#adicionarModem:hover, a#adicionarLinha:hover, a#adicionarLicensa:hover, a#adicionarEquipamento:hover, a#adicionarMovimento:hover {
-    background: #e49721;
+    background: #cc4d28;
 }
 
 a#botaoVoltar {
@@ -693,7 +693,7 @@ a#backToTop {
 
 
 a#backToTop:hover {
-    background: #ce8a23;
+    background: #b94321;
 }
 
 div#equipamentoDinamico, div#licensaDinamico, div#listaDinamico {
@@ -719,7 +719,7 @@ a.subMenu:hover, a.subMenu2:hover, a.subMenu3:hover {
 }
 
 a.subMenu.selecionado, a.subMenu2.selecionado, a.subMenu3.selecionado {
-    background: #b77b20;
+    background: #cc4d28;
 }
 
 .semResultados {
@@ -1013,4 +1013,112 @@ h3 {
 }
 .coluna:nth-child(3) {
     width: 48%;
+}
+
+
+
+
+
+
+
+
+
+
+
+table {
+    width: 100%;
+    text-align: right;
+}
+
+div#conteudoCinza.calendario {
+    padding: 0;
+    width: 100%;
+    background: #DDD;
+}
+
+.calendario td {
+    width: 14.4%;
+    text-align: right;
+}
+
+a.diaCalendario {
+    color: #777;
+    text-decoration: none;
+    padding: 7px 12px;
+    display: inline-block;
+    transition: all 0.43s;
+    -moz-transition: all 0.43s;
+    -o-transition: all 0.43s;
+    -webkit-transition: all 0.43s;
+}
+
+tr.nomeDias td {
+    background: #333 url(../img/texturaCinza.jpg);
+    color: #FFF;
+    padding: 16px 0;
+    border: #FFF solid 1px;
+    text-align: center;
+}
+
+.nome_mes h3 {
+    margin-bottom: 0;
+    background: #525252;
+    font-family: "Champagne & Limousines";
+    font-size: 20px;
+}
+
+a.diaCalendario:hover {
+    background: #525252;
+    color: #FFF;
+}
+
+td#dia_comum {
+    background: #EEE;
+    border: #CCC solid 1px;
+    height: 133px;
+}
+
+td#dia_branco {
+    background: #DDD;
+    border: #CCC solid 1px;
+    height: 133px;
+}
+
+td#dia_atual {
+    background: #e4704f;
+    border: #CCC solid 1px;
+    height: 133px;
+}
+
+
+td#dia_atual .hoje {
+    color: #FFF;
+}
+
+a#avancarMes {
+    float: right;
+    padding: 13px 22px 7px;
+    margin-top: -16px;
+    background: rgba(255,255,255,.16);
+    font-size: 30px;
+    transition: all 0.43s;
+    -moz-transition: all 0.43s;
+    -o-transition: all 0.43s;
+    -webkit-transition: all 0.43s;
+}
+
+a#voltarMes {
+    float: left;
+    padding: 13px 22px 7px;
+    margin-top: -16px;
+    background: rgba(255,255,255,.16);
+    font-size: 30px;
+    transition: all 0.43s;
+    -moz-transition: all 0.43s;
+    -o-transition: all 0.43s;
+    -webkit-transition: all 0.43s;
+}
+
+a#voltarMes:hover, a#avancarMes:hover {
+    background: rgba(255,255,255,.43);    
 }
