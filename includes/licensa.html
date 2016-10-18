@@ -1,0 +1,105 @@
+<?php
+
+// Arquivo de Corpo
+
+include "./conexao.php";
+
+$sqlLicensa = "SELECT * FROM relatorios_licensas WHERE id=".$_GET['id'];
+$resLicensa = sqlsrv_query($con, $sqlLicensa);
+$rowLicensa = sqlsrv_fetch_array($resLicensa);
+
+?>
+
+
+<section class="aparelho">
+	<h2>Editar Licensa - <?=$rowLicensa['id']?></h2>
+
+	<form id="editarLicensa" action="./" method="post">
+	<input type="hidden" name="hiddenUpdate" value="true">
+	<input type="hidden" name="hiddenLicensa" value="<?=$rowLicensa['id']?>">
+
+	<select name="inputTipo" id="inputTipo" required>
+		<?php
+		$sqlTipo = "SELECT * FROM relatorios_tipos WHERE tipo = 2 ORDER BY id";
+		$resTipo = sqlsrv_query($con, $sqlTipo);
+
+		while($rowTipo = sqlsrv_fetch_array($resTipo)) { ?>		
+		<option <?php if($rowTipo['nome'] == $rowLicensa['tipo']) { $tipoAtual = $rowTipo['id']; echo "selected"; } ?> value="<?=$rowTipo['id']?>"><?=$rowTipo['nome']?></option>
+		<?php } ?>
+	</select><span>*</span>
+
+
+	<select name="inputTipoLicensa" id="inputTipoLicensa" required>
+		<option value="">Tipo de Licensa</option>
+		<?php
+		$sqlTipoLicensa = "SELECT * FROM relatorios_listas WHERE tipo = 20 ORDER BY id";
+		$resTipoLicensa = sqlsrv_query($con, $sqlTipoLicensa);
+
+		while($rowTipoLicensa = sqlsrv_fetch_array($resTipoLicensa)) { ?>		
+		<option <?php if($rowLicensa['tipoLicensa'] == $rowTipoLicensa['id']) echo "selected"; ?> value="<?=$rowTipoLicensa['id']?>"><?=$rowTipoLicensa['nome']?></option>
+		<?php } ?>
+	</select><span>*</span>
+
+	<textarea placeholder="Descrição" type="text" name="inputDescricao" id="inputDescricao"><?=$rowLicensa['descricao']?></textarea>
+
+	<select name="inputFabricante" id="inputFabricante">
+		<option value="" <?php if($rowLicensa['fabricante'] == 0) echo "selected"; ?>>Sem Fabricante</option>
+		<?php
+		$sqlFabricante = "SELECT * FROM relatorios_listas WHERE tipo = 18 ORDER BY id";
+		$resFabricante = sqlsrv_query($con, $sqlFabricante);
+
+		while($rowFabricante = sqlsrv_fetch_array($resFabricante)) { ?>		
+		<option <?php if($rowLicensa['fabricante'] == $rowFabricante['id']) echo "selected"; ?> value="<?=$rowFabricante['id']?>"><?=$rowFabricante['nome']?></option>
+		<?php } ?>
+	</select>
+
+
+
+	<select name="inputFornecedor" id="inputFornecedor">
+		<option value="0" <?php if($rowLicensa['fornecedor'] == 0) echo "selected"; ?>>Sem Fornecedor</option>
+		<?php
+		$sqlFornecedor = "SELECT * FROM relatorios_listas WHERE tipo = 17 ORDER BY id";
+		$resFornecedor = sqlsrv_query($con, $sqlFornecedor);
+
+		while($rowFornecedor = sqlsrv_fetch_array($resFornecedor)) { ?>		
+		<option <?php if($rowLicensa['fornecedor'] == $rowFornecedor['id']) echo "selected"; ?> value="<?=$rowFornecedor['id']?>"><?=$rowFornecedor['nome']?></option>
+		<?php } ?>
+	</select>
+
+	<input value="<?=$rowLicensa['cnpj']?>" placeholder="CNPJ Fornecedor" type="text" name="inputCnpj" id="inputCnpj">
+	<input value="<?=$rowLicensa['chave']?>" placeholder="Chave da Licensa" type="text" name="inputChave" id="inputChave">
+
+	<input type="hidden" name="inputNotaAtual" id="inputNotaAtual" value="<?=$rowLicensa['link']?>">
+	<?php if(isset($rowLicensa['link']) && $rowLicensa['link'] != "notas/") { ?><a id="linkNotaFiscal" href="<?=$rowLicensa['link']?>" target="_blank">Veja a Nota Atual</a><?php } ?>	
+	<p>Enviar Nota Fiscal</p>
+	<input type="file" name="inputNotaFiscal" id="inputNotaFiscal">
+	<input value="<?=$rowLicensa['nota_fiscal']?>" placeholder="N° Nota Fiscal" type="text" name="inputNumeroNota" id="inputNumeroNota">
+	<input value="<?=$rowLicensa['data_nf']->format('d/m/Y')?>" name="inputDataNotaFiscal" id="inputDataNotaFiscal" placeholder="Data da Nota Fiscal" title="dd/mm/aaaa" pattern="[0-9]{2}\/[0-9]{2}\/[0-9]{4}$">
+
+	<textarea placeholder="Observação" type="text" name="inputObservacao" id="inputObservacao"><?=$rowLicensa['observacoes']?></textarea>
+	<input type="checkbox" name="inputDisponivel" <?php if($rowLicensa['disponivel'] == 1) echo "checked"; ?> value="1"> Disponível
+	<input type="submit" name="enviar" >
+
+	</form>
+</section>
+
+
+<script type="text/javascript" language="javascript">
+    $(function() {
+
+        $("#botaoVoltar").click(function() {
+
+        	var ultimo = <?=$tipoAtual?>;
+
+            $("#equipamentoDinamico").html('<div class="spinner"><div class="rect1"></div><div class="rect2"></div><div class="rect3"></div><div class="rect4"></div><div class="rect5"></div></div>');
+
+            // Faz requisição ajax e envia o ID da Categoria via método POST
+            $.post("dinamicos/equipamentos.php", {ultimo: ultimo}, function(resposta) {
+
+               // Coloca a resposta na DIV
+               $("#equipamentoDinamico").html(resposta);
+           
+            });
+        });
+    });
+</script>
