@@ -1,0 +1,202 @@
+@import "fonts";
+
+$list-abas: #home, #atividades, #equipes, #categorias, #rotinas, #historico;
+$list-abas-caps: Home, Atividades, AtividadesAmanha, Equipes, Categorias, Rotinas, Historico, Dias;
+$list-abas-low: home, atividades, equipes, categorias, rotinas, historico, dia;
+$list-abas-single: home, Atividade, Equipe, Categoria, Rotina, Historico, AtividadeAmanha, Dia;
+
+@mixin size($w, $h: $w, $max-w: auto, $max-h: $max-w, $min-w: auto, $min-h: $min-w) {
+    @if $w != 'auto' { width: $w; }
+    @if $h != 'auto' { height: $h; }
+    @if $max-w != 'auto' { max-width: $max-w; }
+    @if $max-h != 'auto' { max-height: $max-h; }
+    @if $min-w != 'auto' { min-width: $min-w; }
+    @if $min-h != 'auto' { min-height: $min-h; }
+}
+
+@mixin bg($color, $image: none, $repeat: no-repeat) {
+    background: $color $image $repeat;
+}
+
+@mixin font($color, $family: $font-text, $font-size: 16px, $weight: normal) {
+    font-family: $family;
+    font-size: $font-size;
+    font-weight: $weight;
+    color: $color;
+}
+
+@mixin transition($att, $time, $ease: ease) {
+  -webkit-transition: $att $time $ease;
+     -moz-transition: $att $time $ease;
+      -ms-transition: $att $time $ease;
+       -o-transition: $att $time $ease;
+          transition: $att $time $ease; 
+}
+
+%trs {
+  -webkit-transition: all .43s;
+     -moz-transition: all .43s;
+      -ms-transition: all .43s;
+       -o-transition: all .43s;
+          transition: all .43s; 
+}
+
+
+%cursor {
+    cursor: pointer;
+}
+
+%block {
+    display: block;
+}
+
+%center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+%mrgtp {
+    margin-top: 22px;
+}
+
+form {
+    @include size(50%, auto);
+    margin: 12px auto;
+}
+
+label {
+    display: block;
+    text-align: center;
+    padding: 10px 0 0;
+    color: #434343;
+    font-family: calibri;
+    margin-bottom: 12px;
+    background: #CCC;
+    padding-top: 14px;
+
+    &.chkbox {
+        text-align: left;
+        padding: 0;
+        background: #EEE;
+    }
+
+    &.metade {
+        display: inline-block;
+        width: 49.6%;
+        margin: 0 0.2% 12px;
+    }
+}
+
+input, textarea, select {
+    width: 100%;
+    border: 1px solid #ccc;
+    padding: 14px;
+    margin-top: 14px;
+    font-family: calibri;
+    color: #777;
+    font-size: 16px;
+}
+
+textarea {
+    height: 106px;
+    resize: none;
+}
+
+input[type="submit"] {
+    @extend %trs;
+    @extend %center;
+    @extend %cursor;
+    background: #cc4d28;
+    color: #FFF;
+    border: none;
+    padding: 16px 10%;
+    display: block;
+
+    &:hover {
+      @include bg($ter-color);
+    }
+}
+
+form input[type="checkbox"] {
+    @include size(5%, 22px);
+    display: inline-block;
+    margin: 20px 0 20px 16px;
+}
+
+form#editarAtividade p, form#editarEquipe p {
+    padding-bottom: 0;
+    color: #666;
+}
+
+input, select {
+    vertical-align:middle;
+}
+
+#dinamicoTerceiros {
+    display: none;
+}
+
+#quadroFuncionarios {
+    padding: 0;
+    border: 1px solid #CCC;
+    box-sizing: border-box;
+    max-height: 520px;
+    overflow: auto;
+}
+
+#quadroFuncionarios h4 {
+    background: #777;
+    margin: 0px;
+    padding: 16px 0;
+    color: #FFF;
+    font-size: 21px;
+    font-family: $font-local;
+}
+
+.funcionarioQuadro {
+    @extend %trs;
+    padding: 16px 0;
+    cursor: pointer;
+    border-top: 1px solid #FFF;
+    
+    &:nth-child(odd) {
+        background: #EEE;
+    }
+    &:hover {
+        background: #ccc;
+    }
+
+    &.selecionado {
+        background: $sec-color;
+        color: #FFF;
+    }
+}
+
+%pesquisa {
+    @include size(60%, auto);
+    @include font($bg-color3, arial, 22px);
+    margin: 10px 0;
+    padding: 16px;
+    border: #DDD 1px solid;
+    display: inline-block;
+}
+
+%pesquisaFocus {
+    border: #222 1px solid;
+    background: #525252;
+    color: #DDD;
+}
+
+@for $i from 1 through length($list-abas-caps) {
+
+    input#pesquisar#{nth($list-abas-caps, $i)} {
+        @extend %trs;
+        @extend %pesquisa;
+
+        &:focus {
+            @extend %pesquisaFocus;
+        }
+    }
+}

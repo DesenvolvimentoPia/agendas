@@ -2,6 +2,13 @@
 
 session_start();
 
+$ln = "";
+
+$explodirUrl = explode("/", $_SERVER['REQUEST_URI']);
+
+for($x = 0; $x < count($explodirUrl) - 3; $x++) $ln .= "../";
+if($ln == "") $ln = "./";
+
 // Exibir Erros Oriundos do PHP
 ini_set('display_errors',1);
 ini_set('display_startup_erros',1);

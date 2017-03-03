@@ -1,0 +1,146 @@
+<?php
+// Arquivo de Corpo
+
+include "./conexao.php";
+
+?>
+
+<section class="aparelho">
+	<h2>Adicionar Atividade</h2>
+
+	<form id="editarEquipamento" action="./" method="post" enctype="multipart/form-data">
+	<input type="hidden" name="hiddenCreate" value="true">
+
+	<input type="hidden" name="hiddenNovoAtividade" value="true">
+
+	
+	<label>Nome da Atividade: 
+	<input placeholder="Nome Exemplo" type="text" name="inputNome" id="inputNome">
+	</label>
+
+	<label>Data da Atividade: 
+	<input type="date" name="inputDataInicial" id="inputDataInicial">
+	</label>
+
+	<div class="separador">
+	<label class="metade">Hora Inicial: 
+	<input value="07:30" type="time" name="inputHoraInicial" id="inputHoraInicial">
+	</label><label class="metade">Hora Final: 
+	<input value="17:30" type="time" name="inputHoraFinal" id="inputHoraFinal">
+	</label>
+	</div>
+
+	<label>Descrição da Atividade:
+	<textarea placeholder="" type="text" name="inputObservacao" id="inputObservacao"></textarea>
+	</label>
+	
+	<label class="chkbox">
+	<input type="checkbox" onclick="terceiros()" name="inputEnvolveTerceiros" id="inputEnvolveTerceiros" value="1"> Envolve Terceiros
+	</label>
+
+	<div id="dinamicoTerceiros">
+		<label>Empresa Terceira: 
+		<select onchange="funcionarios(this.value)" type="text" name="inputEmpresaTerceira" id="inputEmpresaTerceira">
+			<?php
+			$sql = "SELECT * FROM relatorios_terceiros";
+			$res = sqlsrv_query($con, $sql);
+			$i = 0;
+			while($row = sqlsrv_fetch_array($res)) {
+				$ter[$i]['nome'] = $row['nome'];
+				$ter[$i]['id'] = $row['id'];
+				$i++;
+			}
+
+			sort($ter);
+
+			for($x = 0; $x < $i; $x++) {
+			?><option <?php if($x == 0) echo "selected"; ?> value="<?=$ter[$x]['id']?>"><?=$ter[$x]['nome']?></option>
+			<?php } ?>
+		</select>
+		</label>
+	<div class="separador">
+	<label class="metade">Total de Refeições: 
+	<input type="number" placeholder="Total da Empresa" name="inputRefeicoes" id="inputRefeicoes">
+	</label><label class="metade">Total de Hospedagens: 
+	<input type="number" placeholder="Total da Empresa" name="inputHospedagens" id="inputHospedagens">
+	</label>
+	</div>
+
+	<label>Deslocamento (em Km): 
+	<input placeholder="Exemplo: 100" type="number" name="inputNome" id="inputNome">
+	</label>
+
+	<div id="quadroFuncionarios">
+	<h4>Funcionários</h4>
+
+	<?php
+	$sql = "SELECT * FROM relatorios_terceiros_funcionarios WHERE id_empresa = ".$ter[0]['id'];
+	$res = sqlsrv_query($con, $sql);
+	$i = 0;
+	while($row = sqlsrv_fetch_array($res)) {
+		$func[$i]['nome'] = $row['nome'];
+		$func[$i]['id'] = $row['id'];
+		$i++;
+	}
+
+	if($i == 0) echo "<p>Nenhum Funcionário Cadastrado!</p>";
+
+	sort($func);
+
+	for($x = 0; $x < $i; $x++) {
+	?><div class='funcionarioQuadro' data-cod="<?=$func[$x]['id']?>"><?=$func[$x]['nome']?></div>
+	<?php } ?>
+
+	</div>
+
+	<input type="hidden" name="funcionariosSelecionados" id="funcionariosSelecionados">
+	</div>
+
+
+	
+
+	<input type="submit" name="enviar" >
+
+	</form>
+</section>
+
+
+<script>
+
+function funcionarios(val) {
+	document.getElementById('funcionariosSelecionados').value = "";
+
+	$.ajax({
+	  url: "funcionarios.php?id="+val
+	}).done(function(data) { // data what is sent back by the php page
+	  $('#quadroFuncionarios').html(data); // display data
+	});
+}
+
+$( "#dinamicoTerceiros" ).delegate( ".funcionarioQuadro", "click", function() {
+	var cod = $(this).data('cod');
+
+	if(this.className == 'funcionarioQuadro selecionado') {
+		this.className = 'funcionarioQuadro';
+		var atual = document.getElementById('funcionariosSelecionados').value;
+		document.getElementById('funcionariosSelecionados').value = atual.replace(cod + ';','');
+	}
+
+	else {
+		this.className = 'funcionarioQuadro selecionado';
+		document.getElementById('funcionariosSelecionados').value += cod + ";";
+	}
+
+});
+
+function terceiros() {
+	if(document.getElementById("inputEnvolveTerceiros").checked == true) {
+		$("#dinamicoTerceiros").fadeIn();
+	}
+
+	else {
+		$("#dinamicoTerceiros").fadeOut();
+	}
+}
+
+</script>

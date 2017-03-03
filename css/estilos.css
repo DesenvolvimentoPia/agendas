@@ -101,9 +101,7 @@ hr {
     padding:0;
 }
 
-input, select {
-    vertical-align:middle;
-}
+
 
 body {
     background: #EEE;
@@ -183,82 +181,15 @@ h2 {
     padding: 16px 0;
 }
 
-#listas, #listas, #equipamentos, #licensas, #historico, #movimentos, #perfis, #notebooks {
-	display: none;
-}
-
-
-form {
-    width: 50%;
-    margin: 12px auto;
-}
-
-label {
-    display: block;
-    text-align: center;
-    background: #DDD;
-    padding: 10px 0 0;
-    color: #434343;
-    font-family: calibri;
-    margin-bottom: 12px;
-}
-
-input[type="date"] {
-    width: 100%;
-    font-family: calibri;
-    font-size: 16px;
-    padding: 7px;
-    margin-top: 10px;
-    border: 1px solid #DDD;
-    color: #434343;
-}
-
-input[type="submit"] {
-    background: #cc4d28;
-    color: #FFF;
-    border: none;
-    padding: 16px 10%;
-    display: block;
-    margin: 0 auto;
-    cursor: pointer;
-    transition: all 0.43s;
-    -o-transition: all 0.43s;
-    -moz-transition: all 0.43s;
-    -webkit-transition: all 0.43s;
-}
-
-input[type="submit"]:hover {
-    background: #f0a832;
-}
 
 a.acao.selecionado {
     background: rgba(0,0,0,.43);
     border-color: #a03313;
 }
 
-.linhaResultado, .linhaResultado7, .linhaResultado4, .linhaResultado5, .linhaResultado6, .linhaResultado1 {
-    display: block;
-    padding: 12px 2%;
-    width: 86%;
-    margin: 0 auto;
-    text-align: center;
-}
 
-.linhaResultado:nth-child(odd), .linhaResultado7:nth-child(odd), .linhaResultado4:nth-child(odd), .linhaResultado5:nth-child(odd), .linhaResultado6:nth-child(odd), .linhaResultado1:nth-child(odd) {
-	background: #CCC;
-}
 
-div.colunaResultado {
-    width: 14%;
-    display: inline-block;
-    text-align: center;
-    vertical-align: middle;
-}
 
-footer {
-    text-align: center;
-    margin: 25px 0 12px;
-}
 
 a.exportar {
     display: block;
@@ -279,32 +210,8 @@ a.exportar {
 a.exportar:hover {
     background: #b94321;
 }
-.tituloResultados {
-    display: block;
-    padding: 0px 2%;
-    width: 86%;
-    margin: 0 auto;
-    background: #777;
-    color: #FFF;
-    text-align: center;
-}
 
-.tituloResultados a {
-    width: 14%;
-    display: inline-block;
-    vertical-align: top;
-    padding: 16px 0;
-    cursor: pointer;
-    text-align: center;
-    transition: all 0.43s;
-    -o-transition: all 0.43s;
-    -moz-transition: all 0.43s;
-    -webkit-transition: all 0.43s;
-}
 
-.tituloResultados a:hover {
-    background: #555;
-}
 
 .tituloResultados a.selecionado {
     background: #cc4d28;
@@ -325,7 +232,7 @@ a.linkTitulo2 {
     width: 25%;
 }
 
-.linhaResultado:hover, .linhaResultado7:hover, .linhaResultado4:hover, .linhaResultado5:hover, .linhaResultado6:hover, .linhaResultado1:hover {
+.linhaResultado:hover, #equipes .linhaResultado7:hover, #categorias .linhaResultado7:hover, .linhaResultado7:hover, .linhaResultado4:hover, .linhaResultado6:hover {
     background: #e4704f;
     color: #FFF;
 }
@@ -421,7 +328,7 @@ div#resultadoSql {
     left: 25%;
 }
 
-input#pesquisarListas, input#pesquisarModens, input#pesquisarLinhas, input#pesquisarLicensas, input#pesquisarEquipamentos, input#pesquisarMovimentos {
+input#pesquisarCategorias, input#pesquisarModens, input#pesquisarAtividadesAmanha, input#pesquisarEquipes, input#pesquisarAtividades, input#pesquisarRotinas {
     margin: 10px 0;
     width: 60%;
     padding: 16px;
@@ -436,13 +343,13 @@ input#pesquisarListas, input#pesquisarModens, input#pesquisarLinhas, input#pesqu
     -webkit-transition: all 0.43s;
 }
 
-input#pesquisarListas:focus, input#pesquisarModens:focus, input#pesquisarLinhas:focus, input#pesquisarMovimentos:focus, input#pesquisarEquipamentos:focus, input#pesquisarLicensas:focus {
+input#pesquisarCategorias:focus, input#pesquisarModens:focus, input#pesquisarAtividadesAmanha:focus, input#pesquisarRotinas:focus, input#pesquisarAtividades:focus, input#pesquisarEquipes:focus {
     border: #222 1px solid;
     background: #525252;
     color: #DDD;
 }
 
-a#adicionarLista, a#adicionarModem, a#adicionarLinha, a#adicionarLicensa, a#adicionarEquipamento, a#adicionarMovimento {
+a#adicionarCategoria, a#adicionarModem, a#adicionarAtividadeAmanha, a#adicionarEquipe, a#adicionarAtividade, a#adicionarRotina {
     width: 27%;
     padding: 18px 1%;
     background: #999;
@@ -460,7 +367,11 @@ a#adicionarLista, a#adicionarModem, a#adicionarLinha, a#adicionarLicensa, a#adic
     -webkit-transition: all 0.43s;
 }
 
-a#adicionarLista:hover, a#botaoVoltar:hover, a#adicionarModem:hover, a#adicionarLinha:hover, a#adicionarLicensa:hover, a#adicionarEquipamento:hover, a#adicionarMovimento:hover {
+div#angularAtividades {
+    margin-bottom: 25px;
+}
+
+a#adicionarCategoria:hover, a#botaoVoltar:hover, a#adicionarModem:hover, a#adicionarAtividadeAmanha:hover, a#adicionarEquipe:hover, a#adicionarAtividade:hover, a#adicionarRotina:hover {
     background: #cc4d28;
 }
 
@@ -505,8 +416,20 @@ img#logoInterno {
 }
 
 .linhaResultado7 .colunaResultado {
-    width: 14%;
+    width: 20%;
     min-height: 14px;
+}
+
+.linhaResultado7 .colunaResultado:nth-child(2) {
+    width: 45%;
+}
+
+.linhaResultado7 .colunaResultado:nth-child(3) {
+    width: 35%;
+}
+
+#angularCategorias .linhaResultado7 .colunaResultado:nth-child(2), #angularEquipes .linhaResultado7 .colunaResultado:nth-child(2) {
+    width: 80%;
 }
 
 .linhaResultado4 .colunaResultado, .linhaResultado5 .colunaResultado {
@@ -520,33 +443,6 @@ a.linkTitulo3 {
 
 a.linkTitulo4, a.linkTitulo5 {
     width: 25%;
-}
-
-
-a.nmn {
-    width: 23.333333%;
-    display: inline-block;
-    text-align: center;
-    padding: 16px 0;
-    background: #DDD;
-    margin-left: 15%;
-    margin-right: -15%;
-    cursor: pointer;
-    box-shadow: 0px 0px 1px #AAA;
-    color: #333;
-    transition: all 0.43s;
-    -o-transition: all 0.43s;
-    -moz-transition: all 0.43s;
-    -webkit-transition: all 0.43s;
-}
-
-a.nmn:hover {
-    background: #CCC;
-}
-
-a.nmn.selecionado {
-    background: #7bafea;
-    color: #FFF;
 }
 
 .colunaResultado span, .colunaId {
@@ -563,12 +459,6 @@ a.nmn.selecionado {
     display: none;
 }
 
-form input[type="checkbox"] {
-    display: inline-block;
-    width: 5%;
-    margin: 20px 0 20px 15%;
-    height: 22px;
-}
 
 
 
@@ -594,7 +484,7 @@ span.editar {
     margin-left: 7px;
 }
 
-#listaDinamico a.linhaResultado7 div:nth-child(2), #listaDinamico div.tituloResultados a:nth-child(2) {
+#categoriaDinamico a.linhaResultado7 div:nth-child(2), #categoriaDinamico div.tituloResultados a:nth-child(2) {
     width: 70%;
 }
 
@@ -631,31 +521,12 @@ span.editar {
     vertical-align: middle;
 }
 
-@font-face {
-    font-family: 'Champagne';
-    src: url('../fontes/champagne__limousines-webfont.eot');
-    src: url('../fontes/champagne__limousines-webfont.eot?#iefix') format('embedded-opentype'),
-        url('../fontes/champagne__limousines-webfont.woff') format('woff'),
-        url('../fontes/champagne__limousines-webfont.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
 
 
 
 
 
 
-
-
-
-
-
-
-form#editarEquipamento p, form#editarLicensa p {
-    padding-bottom: 0;
-    color: #666;
-}
 
 
 
@@ -696,7 +567,7 @@ a#backToTop:hover {
     background: #b94321;
 }
 
-div#equipamentoDinamico, div#licensaDinamico, div#listaDinamico {
+div#atividadeDinamico, div#equipesDinamico, div#categoriasDinamico, div#rotinasDinamico {
     margin-top: 22px;
 }
 
@@ -898,8 +769,8 @@ h3 {
   z-index: 2;
   color: #fff;
   cursor: default;
-  background-color: #da9630;
-  border-color: #da9630;
+  background-color: #cc4d28;
+  border-color: #cc4d28;
 }
 .pagination > .disabled > span,
 .pagination > .disabled > span:hover,
@@ -980,7 +851,7 @@ h3 {
     padding-top: 12px;
 }
 
-.tituloUltimosEquipamentos {
+.tituloUltimosAtividades {
     padding: 12px 0;
     background: #525252;
     color: #FFF;
@@ -996,11 +867,11 @@ h3 {
 }
 
 
-.ultimosEquipamentos:nth-child(odd) {
+.ultimosAtividades:nth-child(odd) {
     background: #DDD;
 }
 
-.ultimosEquipamentos {
+.ultimosAtividades {
     padding: 12px 0;
 }
 

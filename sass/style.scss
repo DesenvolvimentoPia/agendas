@@ -1,0 +1,412 @@
+@import "compass/reset";
+@import "fonts";
+
+$list-abas: #home, #atividades, #equipes, #categorias, #rotinas, #historico;
+$list-abas-caps: Home, Atividades, AtividadesAmanha, Equipes, Categorias, Rotinas, Historico, Dias;
+$list-abas-low: home, atividades, equipes, categorias, rotinas, historico, dia;
+$list-abas-single: home, Atividade, Equipe, Categoria, Rotina, Historico, AtividadeAmanha, Dia;
+
+@mixin size($w, $h: $w, $max-w: auto, $max-h: $max-w, $min-w: auto, $min-h: $min-w) {
+	@if $w != 'auto' { width: $w; }
+	@if $h != 'auto' { height: $h; }
+	@if $max-w != 'auto' { max-width: $max-w; }
+	@if $max-h != 'auto' { max-height: $max-h; }
+	@if $min-w != 'auto' { min-width: $min-w; }
+	@if $min-h != 'auto' { min-height: $min-h; }
+}
+
+@mixin bg($color, $image: none, $repeat: no-repeat) {
+	background: $color $image $repeat;
+}
+
+@mixin font($color, $family: $font-text, $font-size: 16px, $weight: normal) {
+	font-family: $family;
+	font-size: $font-size;
+	font-weight: $weight;
+	color: $color;
+}
+
+@mixin transition($att, $time, $ease: ease) {
+  -webkit-transition: $att $time $ease;
+     -moz-transition: $att $time $ease;
+      -ms-transition: $att $time $ease;
+       -o-transition: $att $time $ease;
+          transition: $att $time $ease;	
+}
+
+%trs {
+  -webkit-transition: all .43s;
+     -moz-transition: all .43s;
+      -ms-transition: all .43s;
+       -o-transition: all .43s;
+          transition: all .43s;	
+}
+
+
+%cursor {
+	cursor: pointer;
+}
+
+%block {
+	display: block;
+}
+
+%center {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
+
+%mrgtp {
+	margin-top: 22px;
+}
+
+// ------------------------ Commom ------------------------/
+
+body {
+	font-family: $font-text;
+    background: #EEE;
+    color: $font-color;
+}
+
+a {
+	@extend %trs;
+	@extend %cursor;
+    text-decoration: none;
+}
+
+main {
+	@extend %center;
+	@include size(80%, auto, 1420px, auto);
+}
+
+a#backToTop {
+	@extend %trs;
+	@include size(52px, auto);
+	@include bg(#CCC);
+	@include font(#FFF, $font-local, 61px);
+    padding: 34px 0 6px;
+    position: fixed;
+    bottom: 34px;
+    right: 25px;
+    text-align: center;
+    line-height: 10px;
+    display: none;
+
+    &:hover {
+	    background: #b94321;
+	}
+}
+
+section {
+	@include bg(#FFF);
+	@include size(100%, auto);
+	padding: 16px 0;
+	margin: 7px 0;
+}
+
+p, h2 {
+	@extend %center;
+    padding: 16px 25px;
+    color: $font-color;
+    font-family: $font-text;
+}
+
+h2 {
+	@extend %center;
+    @include bg(#DDD);
+    @include font($font-color, $font-text, 22px, normal);
+    @include size(90%, auto);
+    padding: 16px 0;
+}
+
+#{$list-abas} {
+	display: none;
+}
+
+#{nth($list-abas, 1)} {
+	display: block;
+}
+
+@for $i from 1 through length($list-abas-low) {
+
+	##{nth($list-abas-low, $i)}Dinamico {
+	   @extend %mrgtp;
+	}
+
+}
+
+%linha {
+	@include size(86%, auto);
+    display: block;
+    padding: 12px 2%;
+}
+
+%linha2 {
+	background: #CCC;
+}
+
+@for $i from 1 through length($list-abas-low) {
+
+.linhaResultado#{$i} {
+    @extend %linha;
+	@extend %center;
+}
+
+}
+
+
+@for $i from 1 through length($list-abas-low) {
+
+	.linhaResultado#{$i}:nth-child(odd) {
+	    @extend %linha2;
+	}
+
+}
+
+.tituloResultados {
+	@extend %center;
+	@include size(86%, auto);
+    @include bg(#777);
+    display: block;
+    padding: 0px 2%;
+    color: #FFF;
+
+    a {
+	    vertical-align: top;
+	    padding: 16px 0;
+
+	    &:hover {
+		    @include bg(#555);	
+	    }
+
+	    &.selecionado {
+		    @include bg($sec-color);
+	    }
+	}
+}
+
+%colunas {
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+}
+
+%primeiraColuna {
+    @include size(10%, auto);	
+}
+
+@for $i from 1 through 6 {
+
+	$j : 90 / $i;
+
+	div.colunaResultado#{$i}, a.linkTitulo#{$i} {
+		@extend %colunas;
+	    @include size(#{$j + '%'}, auto);
+
+	    &:nth-child(1) {
+	    	@extend %primeiraColuna;
+	    }
+	}
+}
+
+
+%botaoAdicionar {
+    @include size(27%, auto);
+    @include font(#FFF, $font-text, 22px);
+    padding: 18px 1%;
+    background: #999;
+    display: inline-block;
+    margin-left: 1%;
+    text-align: center;
+    vertical-align: top;
+    margin-top: 11px;
+}
+
+%botaoAdicionar2 {
+	@include bg($sec-color);
+}
+
+@for $i from 1 through length($list-abas-single) {
+
+	a#adicionar#{nth($list-abas-single, $i)} {
+		@extend %botaoAdicionar;
+		@extend %cursor;
+
+		&:hover {
+			@extend %botaoAdicionar2;
+		}
+	}
+}
+
+.semResultados {
+    padding: 25px 0;
+    color: #999;
+    font-size: 20px;
+}
+
+//------------------------ Header ------------------------/
+
+header {
+    @include size(auto, 127px);
+}
+
+nav {
+	@extend %center;
+    @include bg($base-color);
+    @include size(100%, 52px);
+}
+
+h1 {
+	@extend %center;
+    @include bg($bg-color);
+    color: #FFF;
+    padding: 20px 0;
+    margin-bottom: 7px;
+    font-size: 28px;
+    font-family: $font-local;
+}
+
+img#logoInterno {
+	@extend %trs;
+	@include size(133px, auto);
+    vertical-align: middle;
+    float: left;
+    margin: -6px -145px 0 12px;
+}
+
+nav a {
+	@extend %cursor;
+	@include font(#FFF, $font-local, 20px);
+    padding: 16px 22px;
+    display: inline-block;
+    border-bottom: 5px rgba(223,223,223,0) solid;
+
+    &:hover {
+		@include bg(rgba(255,255,255,.25));
+	    border-bottom: 5px #777 solid;
+	}
+}
+
+h1 a.voltar {
+    color: #AAA;
+    font-size: 22px;
+    float: right;
+    margin: 3px 25px 0 -74px;
+
+    &:hover {
+    	color: #FFF;
+    }
+}
+
+
+
+//------------------------ Footer ------------------------/
+
+footer {
+    text-align: center;
+    margin: 25px 0 12px;
+}
+
+
+
+
+//------------------------ Calendario ------------------------/
+
+table {
+    @include size(100%, auto);
+    margin-top: -16px;
+
+    div#conteudoCinza.calendario {
+	    @include bg(#DDD);
+	    padding: 0;
+	}
+
+	td {
+   	 @include size(14.4%, auto);
+	}
+}
+
+
+a.diaCalendario {
+    color: #777;
+    padding: 7px 12px;
+    display: inline-block;
+    margin-top: -66px;
+
+
+	&:hover {
+	    @include bg(#525252);
+	    color: #FFF;
+	}
+}
+
+tr.nomeDias td {
+    @include bg(#333, url(../img/texturaCinza.jpg));
+    color: #FFF;
+    padding: 16px 0;
+    border: #FFF solid 1px;
+    text-align: center;
+    height: auto;
+}
+
+td.nomeMes {
+	height: auto;
+}
+
+.nome_mes h3 {
+	@include font(#FFF, $font-local, 20px);
+    @include bg(#525252);
+    margin-bottom: 0;
+    text-align: center;
+    padding: 16px 0;
+}
+
+td {
+    background: #EEE;
+    border: #CCC solid 1px;
+    height: 133px;
+
+    &#dia_branco {
+	    background: #DDD;
+	}
+
+	&#dia_atual {
+	    background: #e4704f;
+	}
+}
+
+td#dia_atual .hoje {
+    color: #FFF;
+}
+
+a#avancarMes, a#voltarMes {
+	@include bg(rgba(255,255,255,.16));
+    float: right;
+    padding: 13px 22px 7px;
+    margin-top: -16px;
+    font-size: 30px;
+    color: #FFF;
+
+    &:hover {
+	    background: rgba(255,255,255,.43);    
+	}
+}
+
+a#voltarMes {
+    float: left;
+}
+
+
+
+//------------------------ Histórico ------------------------/
+
+@import "historico.scss";
+
+
+
+
+//------------------------ Formulários ------------------------/
+
+@import "formularios.scss";

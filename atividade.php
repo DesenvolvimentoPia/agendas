@@ -14,8 +14,8 @@ else {
 	//echo "AQUI: ".$_GET['id'];
 
 // Incluindo Cabeçalho Padrão
-if($_GET['id'] == 'novo') include "includes/novo.html";
-else include "includes/aparelho.html";
+if($_GET['id'] == 'novo') include "includes/novoAtividade.html";
+else include "includes/atividade.html";
 
 }
 

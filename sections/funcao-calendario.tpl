@@ -52,6 +52,13 @@ function GetNomeMes( $mes )
 function MostreCalendario( $ano, $mes  )
 {
 
+
+$ln = "";
+
+$explodirUrl = explode("/", $_SERVER['REQUEST_URI']);
+
+for($x = 0; $x < count($explodirUrl) - 3; $x++) $ln .= "../";
+if($ln == "") $ln = "./";
 	
 	$numero_dias = GetNumeroDias( $mes );	// retorna o número de dias que tem o mês desejado
 	$nome_mes = GetNomeMes( $mes );
@@ -80,7 +87,7 @@ function MostreCalendario( $ano, $mes  )
  
 	echo "<table border = 0 cellspacing = '0' align = 'center'>";
 	 echo "<tr class='nome_mes'>";
-     echo "<td class='nomeMes' colspan = 7><h3><a href='#' id='voltarMes'><</a>".$nome_mes." | ".$ano."<a href='#' id='avancarMes'>></a></h3></td>";
+     echo "<td class='nomeMes' colspan = 7><h3><a href='".$ln."{$anoAnt}/{$ant}' id='voltarMes'><</a>".$nome_mes." | ".$ano."<a href='".$ln."{$anoProx}/{$prox}' id='avancarMes'>></a></h3></td>";
 	 
 	 echo "</tr>";
 	 echo "<tr class='nomeDias'>";
@@ -136,10 +143,10 @@ function MostreCalendario( $ano, $mes  )
 			  	if($soma < 10) $diaTexto = "0".$soma;
 			  	else $diaTexto = $soma;
 			if ("20".date("y-m-d") == $ano."-".$mes."-".$diaTexto) {
-			  echo "<a class='diaCalendario hoje' href='#'>".++$diacorrente;
+			  echo "<a class='diaCalendario hoje' href='".$ln."{$ano}/{$mes}/{$diaTexto}'>".++$diacorrente;
 			}
 			  else {
-				echo "<a class='diaCalendario' href='#'>".++$diacorrente;
+				echo "<a class='diaCalendario' href='".$ln."{$ano}/{$mes}/{$diaTexto}'>".++$diacorrente;
 			  }
 
 								
@@ -197,8 +204,17 @@ function MostreCalendarioCompleto($ano, $mes)
 
 <?php
 
-$mes = date('m');
-$ano = date('Y');
+$explodirUrl = explode("/", $_SERVER['REQUEST_URI']);
+if(count($explodirUrl) > 3) {
+	$ano = $explodirUrl[2];
+	$mes = $explodirUrl[3];
+}
+
+if(empty($mes)) {
+	$mes = date('m');
+	$ano = date('Y');
+}
+
 MostreCalendario($ano, $mes);
 
 ?>

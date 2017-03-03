@@ -8,6 +8,21 @@
 
 <div id="conteudoCinza" class="calendario">
 	
-	<?php include "funcao-calendario.html"; ?>
+	<?php
+
+	$explodirUrl = explode("/", $_SERVER['REQUEST_URI']);
+
+	if(count($explodirUrl) > 2) {
+		$ano = $explodirUrl[2];
+		$mes = $explodirUrl[3];
+		$dia = $explodirUrl[4];
+
+	include "funcao-dia.html";
+
+	}
+
+	else include "funcao-calendario.html";
+
+	?>
 
 </div>

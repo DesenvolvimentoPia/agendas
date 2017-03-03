@@ -1,28 +1,28 @@
 <h1>CONSULTAR HISTÓRICO</h1>
 
-    <pagination total-items="totalItems" ng-model="currentPage" ng-change="pageChanged()" class="pagination-sm" items-per-page="itemsPerPage"></pagination>
+    <pagination total-items="totalItems" ng-model="currentPage" ng-change="pageChanged()" max-size="16" class="pagination-sm" items-per-page="itemsPerPage"></pagination>
 
 	<div class="tituloResultados">
-		<a class="linkTitulo2 selecionado" ng-click="ordenar2('id');">Dia e Hora</a><a  class="linkTitulo2" ng-click="ordenar2('evento');">Evento</a><a  class="linkTitulo2" ng-click="ordenar2('descricao');">Descrição</a><a  class="linkTitulo2" ng-click="ordenar2('usuario');">Usuário</a>
+		<a class="linkTitulo3 selecionado" ng-click="ordenar2('id');">Dia e Hora</a><a  class="linkTitulo3" ng-click="ordenar2('evento');">Evento</a><a  class="linkTitulo3" ng-click="ordenar2('descricao');">Descrição</a><a  class="linkTitulo3" ng-click="ordenar2('usuario');">Usuário</a>
 	</div>
 
-	<div class="linhaResultado" ng-repeat="y in records.slice(((currentPage-1)*itemsPerPage), ((currentPage)*itemsPerPage)) | orderBy:myOrderBy2">
-		<div class="colunaResultado2">{{y.diaHora}}</div><div class="colunaResultado2">{{y.evento}}</div><div class="colunaResultado2">{{y.descricao}}</div><div class="colunaResultado2">{{y.usuario}}</div>
+	<div class="linhaResultado6" ng-repeat="y in records.slice(((currentPage-1)*itemsPerPage), ((currentPage)*itemsPerPage)) | orderBy:myOrderBy2">
+		<div class="colunaResultado3">{{y.diaHora}}</div><div class="colunaResultado3">{{y.evento}}</div><div class="colunaResultado3">{{y.descricao}}</div><div class="colunaResultado3">{{y.usuario}}</div>
 	</div>
 
-    <pagination total-items="totalItems" ng-model="currentPage" ng-change="pageChanged()" class="pagination-sm" items-per-page="itemsPerPage"></pagination>
+    <pagination total-items="totalItems" ng-model="currentPage" ng-change="pageChanged()" max-size="16" class="pagination-sm" items-per-page="itemsPerPage"></pagination>
 
 	<script>
 
 	$(function() {
-		$('.linkTitulo2').click(function() {
-			var elementos = document.getElementsByClassName('linkTitulo2');
+		$('.linkTitulo3').click(function() {
+			var elementos = document.getElementsByClassName('linkTitulo3');
 
 		for (var x = 0; x < elementos.length; x++) {
-			elementos[x].className = "linkTitulo2";
+			elementos[x].className = "linkTitulo3";
 		}
 
-		this.className = "linkTitulo2 selecionado";
+		this.className = "linkTitulo3 selecionado";
 
 		});
 	});
@@ -34,7 +34,7 @@
 
 	<?php
 
-	$sql = "SELECT relatorios_historico.id, relatorios_historico.nome, hora, descricao, relatorios_usuarios.nome AS usuario FROM relatorios_historico LEFT JOIN relatorios_usuarios ON relatorios_historico.id_usuario = relatorios_usuarios.id  WHERE sistema = 7 OR sistema = 0 ORDER BY relatorios_historico.id DESC";
+	$sql = "SELECT relatorios_historico.id, relatorios_historico.nome, hora, descricao, relatorios_usuarios.nome AS usuario FROM relatorios_historico LEFT JOIN relatorios_usuarios ON relatorios_historico.id_usuario = relatorios_usuarios.id  WHERE sistema = 7 ORDER BY relatorios_historico.id DESC";
 	$res = sqlsrv_query($con, $sql);
 
 	//echo $sql;

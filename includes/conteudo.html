@@ -5,12 +5,11 @@
 include "./conexao.php";
 include "./actions/create.php";
 include "./actions/update.php";
-
 ?>
 
 <body>
 
-<?php if(isset($resultado)) { ?>
+<?php if(isset($resultado)) {  ?>
 
 <script>
 
@@ -30,7 +29,7 @@ $(function(){
 
 
 <header>
-	<h1><img src="./img/logo2.png" id="logoInterno">Agendas - PIÁ</h1>
+	<h1><img src="<?=$ln;?>img/logo2.png" id="logoInterno">Agendas - PIÁ</h1>
 
 	<nav>
 		<a href="#home" class="acao selecionado">Home</a>
@@ -40,7 +39,7 @@ $(function(){
 		<?php if($_SESSION['acesso'] == 9) { ?><a href="#rotinas" class="acao">Rotinas</a><?php } ?>
 		<?php if($_SESSION['acesso'] == 2) { ?><a href="http://suporte.pia.com.br/relatorios/aprendizes/" target="_blank">Registro</a><?php } ?>
 		<a href="#historico" class="acao">Histórico</a>
-		<a href="./logout.php">Logout</a>
+		<a href="../<?=$ln;?>sisti/logout.php">Logout</a>
 	</nav>
 
 </header>
@@ -71,13 +70,82 @@ $(function(){
 	<?php include "sections/historico.tpl"; ?>
 </section>
 
-<section id="perfis" ng-app="appPerfis" ng-controller="myCtrlPerfis">
-	<?php include "sections/perfil.tpl"; ?>
-</section>
 
 
 <a id="backToTop">^</a>
 
+<?php 
+
+
+$ln = "";
+
+$explodirUrl = explode("/", $_SERVER['REQUEST_URI']);
+
+for($x = 0; $x < count($explodirUrl) - 3; $x++) $ln .= "../";
+if($ln == "") $ln = "./";
+
+?>
+
 </main>
+
+<script type="text/javascript" language="javascript">
+    $(function() {
+
+        $(".acao").click(function() {
+
+        	var ultimo = this.href;
+        	//alert(ultimo);
+
+        	if(ultimo.indexOf("atividades") != -1) {
+
+            $("#atividadesDinamico").html('<div class="spinner"><div class="rect1"></div><div class="rect2"></div><div class="rect3"></div><div class="rect4"></div><div class="rect5"></div></div>');
+
+            // Faz requisição ajax e envia o ID da Categoria via método POST
+            $.post("http://lanpiasoa.pia.com.br/agendas/dinamicos/atividades.php", {ultimo: ultimo}, function(resposta) {
+
+               // Coloca a resposta na DIV
+               $("#atividadesDinamico").html(resposta);
+            });
+           }
+
+           else if(ultimo.indexOf("equipes") != -1) {
+
+            $("#equipesDinamico").html('<div class="spinner"><div class="rect1"></div><div class="rect2"></div><div class="rect3"></div><div class="rect4"></div><div class="rect5"></div></div>');
+
+            // Faz requisição ajax e envia o ID da Categoria via método POST
+            $.post("http://lanpiasoa.pia.com.br/agendas/dinamicos/equipes.php", {ultimo: ultimo}, function(resposta) {
+
+               // Coloca a resposta na DIV
+               $("#equipesDinamico").html(resposta);
+            });
+           }
+
+           else if(ultimo.indexOf("categorias") != -1) {
+
+            $("#categoriasDinamico").html('<div class="spinner"><div class="rect1"></div><div class="rect2"></div><div class="rect3"></div><div class="rect4"></div><div class="rect5"></div></div>');
+
+            // Faz requisição ajax e envia o ID da Categoria via método POST
+            $.post("http://lanpiasoa.pia.com.br/agendas/dinamicos/categorias.php", {ultimo: ultimo}, function(resposta) {
+
+               // Coloca a resposta na DIV
+               $("#categoriasDinamico").html(resposta);
+            });
+           }
+
+           else if(ultimo.indexOf("rotinas") != -1) {
+
+            $("#rotinasDinamico").html('<div class="spinner"><div class="rect1"></div><div class="rect2"></div><div class="rect3"></div><div class="rect4"></div><div class="rect5"></div></div>');
+
+            // Faz requisição ajax e envia o ID da Categoria via método POST
+            $.post("http://lanpiasoa.pia.com.br/agendas/dinamicos/rotinas.php", {ultimo: ultimo}, function(resposta) {
+
+               // Coloca a resposta na DIV
+               $("#rotinasDinamico").html(resposta);
+            });
+           }
+           
+        });
+    });
+</script>
 
 </body>

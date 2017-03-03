@@ -1,0 +1,26 @@
+/* Fontes */
+$font-local: 'Champagne & Limousines', 'Champagne';
+$font-text: calibri, sans-serif;
+
+
+@font-face {
+    font-family: 'Champagne';
+    src: url('../fontes/champagne__limousines-webfont.eot');
+    src: url('../fontes/champagne__limousines-webfont.eot?#iefix') format('embedded-opentype'),
+        url('../fontes/champagne__limousines-webfont.woff') format('woff'),
+        url('../fontes/champagne__limousines-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Cores */
+$font-color: #434343;
+$bg-color: #525252;
+$bg-color2: #888;
+$bg-color3: #999;
+$base-color: #b94321;
+$sec-color: darken( $base-color, 7% );
+$ter-color: lighten( $base-color, 7% );
+$op-color: rgba( $base-color, .7 ); 
+$op-color2: rgba( $base-color, .52 ); 
+$op-color3: rgba( $base-color, .25 ); 

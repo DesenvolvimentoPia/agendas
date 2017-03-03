@@ -1,0 +1,709 @@
+/* line 5, ../../../../Ruby23-x64/lib/ruby/gems/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+/* line 22, ../../../../Ruby23-x64/lib/ruby/gems/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+html {
+  line-height: 1;
+}
+
+/* line 24, ../../../../Ruby23-x64/lib/ruby/gems/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 26, ../../../../Ruby23-x64/lib/ruby/gems/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 28, ../../../../Ruby23-x64/lib/ruby/gems/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 30, ../../../../Ruby23-x64/lib/ruby/gems/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none;
+}
+/* line 103, ../../../../Ruby23-x64/lib/ruby/gems/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+/* line 32, ../../../../Ruby23-x64/lib/ruby/gems/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 116, ../../../../Ruby23-x64/lib/ruby/gems/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block;
+}
+
+/* Fontes */
+@font-face {
+  font-family: 'Champagne';
+  src: url("../fontes/champagne__limousines-webfont.eot");
+  src: url("../fontes/champagne__limousines-webfont.eot?#iefix") format("embedded-opentype"), url("../fontes/champagne__limousines-webfont.woff") format("woff"), url("../fontes/champagne__limousines-webfont.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+/* Cores */
+/* line 37, ../sass/style.scss */
+a, a#backToTop, img#logoInterno, input[type="submit"], .funcionarioQuadro, input#pesquisarHome, input#pesquisarAtividades, input#pesquisarAtividadesAmanha, input#pesquisarEquipes, input#pesquisarCategorias, input#pesquisarRotinas, input#pesquisarHistorico, input#pesquisarDias {
+  -webkit-transition: all .43s;
+  -moz-transition: all .43s;
+  -ms-transition: all .43s;
+  -o-transition: all .43s;
+  transition: all .43s;
+}
+
+/* line 46, ../sass/style.scss */
+a, a#adicionarhome, a#adicionarAtividade, a#adicionarEquipe, a#adicionarCategoria, a#adicionarRotina, a#adicionarHistorico, a#adicionarAtividadeAmanha, a#adicionarDia, nav a, input[type="submit"] {
+  cursor: pointer;
+}
+
+/* line 54, ../sass/style.scss */
+main, p, h2, .linhaResultado1, .linhaResultado2, .linhaResultado3, .linhaResultado4, .linhaResultado5, .linhaResultado6, .linhaResultado7, .tituloResultados, nav, h1, input[type="submit"] {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+/* line 61, ../sass/style.scss */
+#homeDinamico, #atividadesDinamico, #equipesDinamico, #categoriasDinamico, #rotinasDinamico, #historicoDinamico, #diaDinamico {
+  margin-top: 22px;
+}
+
+/* line 67, ../sass/style.scss */
+body {
+  font-family: calibri, sans-serif;
+  background: #EEE;
+  color: #434343;
+}
+
+/* line 73, ../sass/style.scss */
+a {
+  text-decoration: none;
+}
+
+/* line 79, ../sass/style.scss */
+main {
+  width: 80%;
+  max-width: 1420px;
+}
+
+/* line 84, ../sass/style.scss */
+a#backToTop {
+  width: 52px;
+  background: #CCC none no-repeat;
+  font-family: "Champagne & Limousines", "Champagne";
+  font-size: 61px;
+  font-weight: normal;
+  color: #FFF;
+  padding: 34px 0 6px;
+  position: fixed;
+  bottom: 34px;
+  right: 25px;
+  text-align: center;
+  line-height: 10px;
+  display: none;
+}
+/* line 97, ../sass/style.scss */
+a#backToTop:hover {
+  background: #b94321;
+}
+
+/* line 102, ../sass/style.scss */
+section {
+  background: #FFF none no-repeat;
+  width: 100%;
+  padding: 16px 0;
+  margin: 7px 0;
+}
+
+/* line 109, ../sass/style.scss */
+p, h2 {
+  padding: 16px 25px;
+  color: #434343;
+  font-family: calibri, sans-serif;
+}
+
+/* line 116, ../sass/style.scss */
+h2 {
+  background: #DDD none no-repeat;
+  font-family: calibri, sans-serif;
+  font-size: 22px;
+  font-weight: normal;
+  color: #434343;
+  width: 90%;
+  padding: 16px 0;
+}
+
+/* line 124, ../sass/style.scss */
+#home, #atividades, #equipes, #categorias, #rotinas, #historico {
+  display: none;
+}
+
+/* line 128, ../sass/style.scss */
+#home {
+  display: block;
+}
+
+/* line 140, ../sass/style.scss */
+.linhaResultado1, .linhaResultado2, .linhaResultado3, .linhaResultado4, .linhaResultado5, .linhaResultado6, .linhaResultado7 {
+  width: 86%;
+  display: block;
+  padding: 12px 2%;
+}
+
+/* line 146, ../sass/style.scss */
+.linhaResultado1:nth-child(odd), .linhaResultado2:nth-child(odd), .linhaResultado3:nth-child(odd), .linhaResultado4:nth-child(odd), .linhaResultado5:nth-child(odd), .linhaResultado6:nth-child(odd), .linhaResultado7:nth-child(odd) {
+  background: #CCC;
+}
+
+/* line 168, ../sass/style.scss */
+.tituloResultados {
+  width: 86%;
+  background: #777 none no-repeat;
+  display: block;
+  padding: 0px 2%;
+  color: #FFF;
+}
+/* line 176, ../sass/style.scss */
+.tituloResultados a {
+  vertical-align: top;
+  padding: 16px 0;
+}
+/* line 180, ../sass/style.scss */
+.tituloResultados a:hover {
+  background: #555 none no-repeat;
+}
+/* line 184, ../sass/style.scss */
+.tituloResultados a.selecionado {
+  background: #9b381c none no-repeat;
+}
+
+/* line 190, ../sass/style.scss */
+div.colunaResultado1, a.linkTitulo1, div.colunaResultado2, a.linkTitulo2, div.colunaResultado3, a.linkTitulo3, div.colunaResultado4, a.linkTitulo4, div.colunaResultado5, a.linkTitulo5, div.colunaResultado6, a.linkTitulo6 {
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+}
+
+/* line 196, ../sass/style.scss */
+div.colunaResultado1:nth-child(1), a.linkTitulo1:nth-child(1), div.colunaResultado2:nth-child(1), a.linkTitulo2:nth-child(1), div.colunaResultado3:nth-child(1), a.linkTitulo3:nth-child(1), div.colunaResultado4:nth-child(1), a.linkTitulo4:nth-child(1), div.colunaResultado5:nth-child(1), a.linkTitulo5:nth-child(1), div.colunaResultado6:nth-child(1), a.linkTitulo6:nth-child(1) {
+  width: 10%;
+}
+
+/* line 204, ../sass/style.scss */
+div.colunaResultado1, a.linkTitulo1 {
+  width: 90%;
+}
+
+/* line 204, ../sass/style.scss */
+div.colunaResultado2, a.linkTitulo2 {
+  width: 45%;
+}
+
+/* line 204, ../sass/style.scss */
+div.colunaResultado3, a.linkTitulo3 {
+  width: 30%;
+}
+
+/* line 204, ../sass/style.scss */
+div.colunaResultado4, a.linkTitulo4 {
+  width: 22.5%;
+}
+
+/* line 204, ../sass/style.scss */
+div.colunaResultado5, a.linkTitulo5 {
+  width: 18%;
+}
+
+/* line 204, ../sass/style.scss */
+div.colunaResultado6, a.linkTitulo6 {
+  width: 15%;
+}
+
+/* line 215, ../sass/style.scss */
+a#adicionarhome, a#adicionarAtividade, a#adicionarEquipe, a#adicionarCategoria, a#adicionarRotina, a#adicionarHistorico, a#adicionarAtividadeAmanha, a#adicionarDia {
+  width: 27%;
+  font-family: calibri, sans-serif;
+  font-size: 22px;
+  font-weight: normal;
+  color: #FFF;
+  padding: 18px 1%;
+  background: #999;
+  display: inline-block;
+  margin-left: 1%;
+  text-align: center;
+  vertical-align: top;
+  margin-top: 11px;
+}
+
+/* line 227, ../sass/style.scss */
+a#adicionarhome:hover, a#adicionarAtividade:hover, a#adicionarEquipe:hover, a#adicionarCategoria:hover, a#adicionarRotina:hover, a#adicionarHistorico:hover, a#adicionarAtividadeAmanha:hover, a#adicionarDia:hover {
+  background: #9b381c none no-repeat;
+}
+
+/* line 243, ../sass/style.scss */
+.semResultados {
+  padding: 25px 0;
+  color: #999;
+  font-size: 20px;
+}
+
+/* line 251, ../sass/style.scss */
+header {
+  height: 127px;
+}
+
+/* line 255, ../sass/style.scss */
+nav {
+  background: #b94321 none no-repeat;
+  width: 100%;
+  height: 52px;
+}
+
+/* line 261, ../sass/style.scss */
+h1 {
+  background: #525252 none no-repeat;
+  color: #FFF;
+  padding: 20px 0;
+  margin-bottom: 7px;
+  font-size: 28px;
+  font-family: "Champagne & Limousines", "Champagne";
+}
+
+/* line 271, ../sass/style.scss */
+img#logoInterno {
+  width: 133px;
+  vertical-align: middle;
+  float: left;
+  margin: -6px -145px 0 12px;
+}
+
+/* line 279, ../sass/style.scss */
+nav a {
+  font-family: "Champagne & Limousines", "Champagne";
+  font-size: 20px;
+  font-weight: normal;
+  color: #FFF;
+  padding: 16px 22px;
+  display: inline-block;
+  border-bottom: 5px rgba(223, 223, 223, 0) solid;
+}
+/* line 286, ../sass/style.scss */
+nav a:hover {
+  background: rgba(255, 255, 255, 0.25) none no-repeat;
+  border-bottom: 5px #777 solid;
+}
+
+/* line 292, ../sass/style.scss */
+h1 a.voltar {
+  color: #AAA;
+  font-size: 22px;
+  float: right;
+  margin: 3px 25px 0 -74px;
+}
+/* line 298, ../sass/style.scss */
+h1 a.voltar:hover {
+  color: #FFF;
+}
+
+/* line 307, ../sass/style.scss */
+footer {
+  text-align: center;
+  margin: 25px 0 12px;
+}
+
+/* line 317, ../sass/style.scss */
+table {
+  width: 100%;
+  margin-top: -16px;
+}
+/* line 321, ../sass/style.scss */
+table div#conteudoCinza.calendario {
+  background: #DDD none no-repeat;
+  padding: 0;
+}
+/* line 326, ../sass/style.scss */
+table td {
+  width: 14.4%;
+}
+
+/* line 332, ../sass/style.scss */
+a.diaCalendario {
+  color: #777;
+  padding: 7px 12px;
+  display: inline-block;
+  margin-top: -66px;
+}
+/* line 339, ../sass/style.scss */
+a.diaCalendario:hover {
+  background: #525252 none no-repeat;
+  color: #FFF;
+}
+
+/* line 345, ../sass/style.scss */
+tr.nomeDias td {
+  background: #333 url(../img/texturaCinza.jpg) no-repeat;
+  color: #FFF;
+  padding: 16px 0;
+  border: #FFF solid 1px;
+  text-align: center;
+  height: auto;
+}
+
+/* line 354, ../sass/style.scss */
+td.nomeMes {
+  height: auto;
+}
+
+/* line 358, ../sass/style.scss */
+.nome_mes h3 {
+  font-family: "Champagne & Limousines", "Champagne";
+  font-size: 20px;
+  font-weight: normal;
+  color: #FFF;
+  background: #525252 none no-repeat;
+  margin-bottom: 0;
+  text-align: center;
+  padding: 16px 0;
+}
+
+/* line 366, ../sass/style.scss */
+td {
+  background: #EEE;
+  border: #CCC solid 1px;
+  height: 133px;
+}
+/* line 371, ../sass/style.scss */
+td#dia_branco {
+  background: #DDD;
+}
+/* line 375, ../sass/style.scss */
+td#dia_atual {
+  background: #e4704f;
+}
+
+/* line 380, ../sass/style.scss */
+td#dia_atual .hoje {
+  color: #FFF;
+}
+
+/* line 384, ../sass/style.scss */
+a#avancarMes, a#voltarMes {
+  background: rgba(255, 255, 255, 0.16) none no-repeat;
+  float: right;
+  padding: 13px 22px 7px;
+  margin-top: -16px;
+  font-size: 30px;
+  color: #FFF;
+}
+/* line 392, ../sass/style.scss */
+a#avancarMes:hover, a#voltarMes:hover {
+  background: rgba(255, 255, 255, 0.43);
+}
+
+/* line 397, ../sass/style.scss */
+a#voltarMes {
+  float: left;
+}
+
+/* line 1, ../sass/historico.scss */
+.pagination {
+  display: block;
+  padding-left: 0;
+  margin: 25px auto;
+  border-radius: 4px;
+  height: 25px;
+  width: 80%;
+  text-align: center;
+}
+
+/* line 11, ../sass/historico.scss */
+.pagination > li {
+  display: inline-block;
+}
+
+/* line 15, ../sass/historico.scss */
+.pagination > li > a,
+.pagination > li > span {
+  position: relative;
+  float: left;
+  padding: 6px 12px;
+  margin-left: -1px;
+  line-height: 1.42857143;
+  color: #9b381c;
+  text-decoration: none;
+  background-color: #fff;
+  border: 1px solid #ddd;
+}
+
+/* line 27, ../sass/historico.scss */
+.pagination > li:first-child > a,
+.pagination > li:first-child > span {
+  margin-left: 0;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+
+/* line 33, ../sass/historico.scss */
+.pagination > li:last-child > a,
+.pagination > li:last-child > span {
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+
+/* line 38, ../sass/historico.scss */
+.pagination > li > a:hover,
+.pagination > li > span:hover,
+.pagination > li > a:focus,
+.pagination > li > span:focus {
+  color: #9b381c;
+  background-color: #eee;
+  border-color: #ddd;
+}
+
+/* line 46, ../sass/historico.scss */
+.pagination > .active > a,
+.pagination > .active > span,
+.pagination > .active > a:hover,
+.pagination > .active > span:hover,
+.pagination > .active > a:focus,
+.pagination > .active > span:focus {
+  z-index: 2;
+  color: #fff;
+  cursor: default;
+  background-color: #d74e26;
+  border-color: #d74e26;
+}
+
+/* line 58, ../sass/historico.scss */
+.pagination > .disabled > span,
+.pagination > .disabled > span:hover,
+.pagination > .disabled > span:focus,
+.pagination > .disabled > a,
+.pagination > .disabled > a:hover,
+.pagination > .disabled > a:focus {
+  color: #999;
+  cursor: not-allowed;
+  background-color: #fff;
+  border-color: #ddd;
+}
+
+/* line 70, ../sass/historico.scss */
+.pagination-sm > li > a, .pagination-sm > li > span {
+  padding: 7px 12px;
+  font-size: 14px;
+}
+
+/* line 75, ../sass/historico.scss */
+.pagination-sm > li:first-child > a,
+.pagination-sm > li:first-child > span {
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+/* line 80, ../sass/historico.scss */
+.pagination-sm > li:last-child > a,
+.pagination-sm > li:last-child > span {
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+
+/* line 36, ../sass/formularios.scss */
+a, a#backToTop, img#logoInterno, input[type="submit"], .funcionarioQuadro, input#pesquisarHome, input#pesquisarAtividades, input#pesquisarAtividadesAmanha, input#pesquisarEquipes, input#pesquisarCategorias, input#pesquisarRotinas, input#pesquisarHistorico, input#pesquisarDias {
+  -webkit-transition: all .43s;
+  -moz-transition: all .43s;
+  -ms-transition: all .43s;
+  -o-transition: all .43s;
+  transition: all .43s;
+}
+
+/* line 45, ../sass/formularios.scss */
+a, a#adicionarhome, a#adicionarAtividade, a#adicionarEquipe, a#adicionarCategoria, a#adicionarRotina, a#adicionarHistorico, a#adicionarAtividadeAmanha, a#adicionarDia, nav a, input[type="submit"] {
+  cursor: pointer;
+}
+
+/* line 53, ../sass/formularios.scss */
+main, p, h2, .linhaResultado1, .linhaResultado2, .linhaResultado3, .linhaResultado4, .linhaResultado5, .linhaResultado6, .linhaResultado7, .tituloResultados, nav, h1, input[type="submit"] {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+/* line 60, ../sass/formularios.scss */
+#homeDinamico, #atividadesDinamico, #equipesDinamico, #categoriasDinamico, #rotinasDinamico, #historicoDinamico, #diaDinamico {
+  margin-top: 22px;
+}
+
+/* line 64, ../sass/formularios.scss */
+form {
+  width: 50%;
+  margin: 12px auto;
+}
+
+/* line 69, ../sass/formularios.scss */
+label {
+  display: block;
+  text-align: center;
+  padding: 10px 0 0;
+  color: #434343;
+  font-family: calibri;
+  margin-bottom: 12px;
+  background: #CCC;
+  padding-top: 14px;
+}
+/* line 79, ../sass/formularios.scss */
+label.chkbox {
+  text-align: left;
+  padding: 0;
+  background: #EEE;
+}
+/* line 85, ../sass/formularios.scss */
+label.metade {
+  display: inline-block;
+  width: 49.6%;
+  margin: 0 0.2% 12px;
+}
+
+/* line 92, ../sass/formularios.scss */
+input, textarea, select {
+  width: 100%;
+  border: 1px solid #ccc;
+  padding: 14px;
+  margin-top: 14px;
+  font-family: calibri;
+  color: #777;
+  font-size: 16px;
+}
+
+/* line 102, ../sass/formularios.scss */
+textarea {
+  height: 106px;
+  resize: none;
+}
+
+/* line 107, ../sass/formularios.scss */
+input[type="submit"] {
+  background: #cc4d28;
+  color: #FFF;
+  border: none;
+  padding: 16px 10%;
+  display: block;
+}
+/* line 117, ../sass/formularios.scss */
+input[type="submit"]:hover {
+  background: #d74e26 none no-repeat;
+}
+
+/* line 122, ../sass/formularios.scss */
+form input[type="checkbox"] {
+  width: 5%;
+  height: 22px;
+  display: inline-block;
+  margin: 20px 0 20px 16px;
+}
+
+/* line 128, ../sass/formularios.scss */
+form#editarAtividade p, form#editarEquipe p {
+  padding-bottom: 0;
+  color: #666;
+}
+
+/* line 133, ../sass/formularios.scss */
+input, select {
+  vertical-align: middle;
+}
+
+/* line 137, ../sass/formularios.scss */
+#dinamicoTerceiros {
+  display: none;
+}
+
+/* line 141, ../sass/formularios.scss */
+#quadroFuncionarios {
+  padding: 0;
+  border: 1px solid #CCC;
+  box-sizing: border-box;
+  max-height: 520px;
+  overflow: auto;
+}
+
+/* line 149, ../sass/formularios.scss */
+#quadroFuncionarios h4 {
+  background: #777;
+  margin: 0px;
+  padding: 16px 0;
+  color: #FFF;
+  font-size: 21px;
+  font-family: "Champagne & Limousines", "Champagne";
+}
+
+/* line 158, ../sass/formularios.scss */
+.funcionarioQuadro {
+  padding: 16px 0;
+  cursor: pointer;
+  border-top: 1px solid #FFF;
+}
+/* line 164, ../sass/formularios.scss */
+.funcionarioQuadro:nth-child(odd) {
+  background: #EEE;
+}
+/* line 167, ../sass/formularios.scss */
+.funcionarioQuadro:hover {
+  background: #ccc;
+}
+/* line 171, ../sass/formularios.scss */
+.funcionarioQuadro.selecionado {
+  background: #9b381c;
+  color: #FFF;
+}
+
+/* line 177, ../sass/formularios.scss */
+input#pesquisarHome, input#pesquisarAtividades, input#pesquisarAtividadesAmanha, input#pesquisarEquipes, input#pesquisarCategorias, input#pesquisarRotinas, input#pesquisarHistorico, input#pesquisarDias {
+  width: 60%;
+  font-family: arial;
+  font-size: 22px;
+  font-weight: normal;
+  color: #999;
+  margin: 10px 0;
+  padding: 16px;
+  border: #DDD 1px solid;
+  display: inline-block;
+}
+
+/* line 186, ../sass/formularios.scss */
+input#pesquisarHome:focus, input#pesquisarAtividades:focus, input#pesquisarAtividadesAmanha:focus, input#pesquisarEquipes:focus, input#pesquisarCategorias:focus, input#pesquisarRotinas:focus, input#pesquisarHistorico:focus, input#pesquisarDias:focus {
+  border: #222 1px solid;
+  background: #525252;
+  color: #DDD;
+}
